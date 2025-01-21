@@ -5,6 +5,7 @@ import onSiteTranslationsImg from '@/public/images/on-site-translations.jpg'
 import qualityControlImg from '@/public/images/quality-control.png'
 import translatingPic from '@/public/images/translating.jpg'
 import voipPhoneTranslationsImg from '@/public/images/voip-phone-conference-translations.jpg'
+import { DocumentTextIcon } from '@heroicons/react/24/outline'
 
 import { cn } from '@/lib/utils'
 
@@ -63,7 +64,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div id="services-intro" className="mt-10 py-5 bg-slate-50">
+      <div id="services-intro" className="mt-10 py-10 bg-slate-50">
         <h2 className="text-3xl font-bold text-center mb-6">We Offer:</h2>
         <Service>
           <ServiceImage
@@ -143,6 +144,17 @@ export default function Home() {
             <ServiceCTA url="contact" urlText="Contact Us" />
           </ServiceContent>
         </Service>
+      </div>
+      <div
+        id="working-with-us"
+        className="my-12 mx-6 lg:mx-auto h-full flex flex-col items-center justify-center"
+      >
+        <div className="max-w-4xl w-full mx-6 xl:mx-0">
+          <h2 className="text-3xl font-bold text-left">Working with us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+            <WorkWithUsStep />
+          </div>
+        </div>
       </div>
     </main>
   )
@@ -224,4 +236,44 @@ const ServiceCTA = ({ url, urlText }: { url: string; urlText: string }) => {
       {urlText}
     </Link>
   )
+}
+const WorkWithUsStep = () => {
+  return (
+    <div className="relative mt-10 max-w-[300px] px-4 pt-12 pb-8 mb-8 border-2 border-[#477050] rounded-xl">
+      <WorkWithUsIcon icon={DocumentTextIcon} />
+      <WorkWithUsTitle>Send Your Documents</WorkWithUsTitle>
+      <WorkWithUsContent>
+        Please send your documents to the following e-mail address:{' '}
+        <a
+          href="mailto:translations.request@acme.com?subject=Translation request"
+          className="text-[#150f47] underline"
+        >
+          translations.request@acme.com
+        </a>
+        . After receiving the translation we will provide a quote within{' '}
+        <b>24 hours</b>.
+      </WorkWithUsContent>
+    </div>
+  )
+}
+
+const WorkWithUsTitle = ({ children }: { children: React.ReactNode }) => {
+  return <div className="mt-4 text-lg font-bold text-center">{children}</div>
+}
+
+const WorkWithUsIcon = ({
+  icon,
+}: {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+}) => {
+  const Icon = icon
+  return (
+    <div className="absolute -top-[40px] left-[50%] translate-x-[-50%] h-[90px] w-[90px] mx-auto bg-white border-[#477050] border-4 rounded-full text-black text-center">
+      <Icon className="size-12 text-black mx-auto mt-4" />
+    </div>
+  )
+}
+
+const WorkWithUsContent = ({ children }: { children: React.ReactNode }) => {
+  return <div className="mt-4 text-center">{children}</div>
 }
