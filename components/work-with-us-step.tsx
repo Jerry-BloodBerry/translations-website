@@ -1,6 +1,6 @@
 const WorkWithUsStep = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="relative mt-10 max-w-[300px] px-4 pt-12 pb-8 mb-8 mx-auto border-2 border-[#477050] bg-white rounded-xl">
+    <div className="relative mt-10 w-full md:max-w-[300px] px-4 pt-12 pb-8 mb-8 mx-auto border-2 border-[#477050] bg-white rounded-xl">
       {children}
     </div>
   )

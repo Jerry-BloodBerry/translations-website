@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 const Service = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="max-w-full lg:max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 mt-16 mx-0 md:mx-6 lg:mx-auto">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 lg:mt-16">
       {children}
     </div>
   )
@@ -23,10 +23,7 @@ interface ServiceImageProps {
 const ServiceImage = (props: ServiceImageProps) => {
   return (
     <div
-      className={cn(
-        'order-last px-12 md:px-0',
-        props.variant == 'left' && 'md:order-first'
-      )}
+      className={cn('order-last', props.variant == 'left' && 'md:order-first')}
     >
       <Image
         src={props.src}
@@ -34,7 +31,7 @@ const ServiceImage = (props: ServiceImageProps) => {
         width={props.width}
         height={props.height}
         className={cn(
-          'max-w-full md:max-w-[350px] mx-auto',
+          'max-w-full md:max-w-[350px] mx-auto mt-4 lg:mt-0',
           props.variant === 'left' ? 'lg:ml-0' : 'lg:mr-0',
           props.className
         )}
@@ -61,7 +58,7 @@ const ServiceContent = ({
   return (
     <div
       className={cn(
-        'max-w-full px-12 md:px-0 md:max-w-[400px]',
+        'max-w-full md:max-w-[400px]',
         variant == 'right' && 'md:ml-auto'
       )}
     >

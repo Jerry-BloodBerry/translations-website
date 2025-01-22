@@ -11,6 +11,7 @@ import {
   DocumentTextIcon,
 } from '@heroicons/react/24/outline'
 
+import { cn } from '@/lib/utils'
 import Service from '@/components/service'
 import WorkWithUsStep from '@/components/work-with-us-step'
 
@@ -39,15 +40,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div
-        id="what-we-do"
-        className="my-12 mx-12 max-w-4xl lg:mx-auto flex items-center justify-center"
-      >
+      <Section id="what-we-do">
         <div className="w-full flex flex-col-reverse md:flex-row md:items-start md:justify-between">
           <div className="max-w-full md:max-w-[90%] lg:max-w-[540px] mx-auto">
-            <h2 className="text-3xl font-bold text-left mx-auto lg:ml-0">
-              What We Do
-            </h2>
+            <SectionTitle>What We Do</SectionTitle>
             <p className="text-left mt-4 text-xl mx-auto lg:ml-0">
               We offer <b>high quality</b> translations for both individuals and
               businesses specializing in translations to and from{' '}
@@ -72,142 +68,169 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
-      <div id="services-intro" className="mt-10 py-10 bg-slate-50">
-        <h2 className="text-3xl font-bold text-center mb-6">We Offer:</h2>
-        <Service>
-          <Service.Image
-            src={qualityControlImg}
-            alt="We offer Correction and Quality Control services"
-            width={680}
-            height={850}
-            variant="right"
-            className="max-w-[200px] md:max-w-[200px]"
-          />
-          <Service.Content variant="left">
-            <Service.Title>High Quality Translations</Service.Title>
-            <Service.Description>
-              Our translators are known for their attention to detail and always
-              deliver timely results. We offer translations for several language
-              pairs and always include proofing as part of our service.
-            </Service.Description>
-            <Service.CallToAction
-              url="/contact"
-              urlText="Request translation"
+      </Section>
+      <div className="mt-10 py-1 bg-slate-50">
+        <Section id="our-offer">
+          <SectionTitle>Our Offer:</SectionTitle>
+          <Service>
+            <Service.Image
+              src={qualityControlImg}
+              alt="We offer Correction and Quality Control services"
+              width={680}
+              height={850}
+              variant="right"
+              className="max-w-[200px] md:max-w-[200px]"
             />
-          </Service.Content>
-        </Service>
-        <Service>
-          <Service.Image
-            src={correctionImg}
-            alt="We offer Correction and Quality Control services"
-            width={680}
-            height={850}
-            variant="left"
-          />
-          <Service.Content variant="right">
-            <Service.Title>Correction Services</Service.Title>
-            <Service.Description>
-              Already have a translation and need it to be checked by another
-              translator? We have got you covered. We offer proofreading and
-              correction services for all supported language pairs.
-            </Service.Description>
-            <Service.CallToAction url="/language-pairs" urlText="Show pairs" />
-          </Service.Content>
-        </Service>
-        <Service>
-          <Service.Image
-            src={onSiteTranslationsImg}
-            alt="We offer On-site and Cabin Translations"
-            width={640}
-            height={291}
-            variant="right"
-          />
-          <Service.Content variant="left">
-            <Service.Title>
-              On-site / Cabin
-              <br />
-              Translations
-            </Service.Title>
-            <Service.Description>
-              Need an on-site translation? We can help you with that. We offer
-              translations for hourly wages specified for each language pair.
-              You can find the wages table by clicking the link below.
-            </Service.Description>
-            <Service.CallToAction url="language-pairs" urlText="Show wages" />
-          </Service.Content>
-        </Service>
-        <Service>
-          <Service.Image
-            src={voipPhoneTranslationsImg}
-            alt="We offer VoIP and Phone Conference translation services"
-            width={640}
-            height={291}
-            variant="left"
-          />
-          <Service.Content variant="right">
-            <Service.Title>
-              Phone/VoIP and Conference Translations
-            </Service.Title>
-            <Service.Description>
-              We offer translations for phone/video calls, on-line conferences
-              and meetings with translation performed in real time. We also
-              provide services related to adding subtitles to existing
-              recordings.
-            </Service.Description>
-            <Service.CallToAction url="contact" urlText="Contact Us" />
-          </Service.Content>
-        </Service>
+            <Service.Content variant="left">
+              <Service.Title>High Quality Translations</Service.Title>
+              <Service.Description>
+                Our translators are known for their attention to detail and
+                always deliver timely results. We offer translations for several
+                language pairs and always include proofing as part of our
+                service.
+              </Service.Description>
+              <Service.CallToAction
+                url="/contact"
+                urlText="Request translation"
+              />
+            </Service.Content>
+          </Service>
+          <Service>
+            <Service.Image
+              src={correctionImg}
+              alt="We offer Correction and Quality Control services"
+              width={680}
+              height={850}
+              variant="left"
+            />
+            <Service.Content variant="right">
+              <Service.Title>Correction Services</Service.Title>
+              <Service.Description>
+                Already have a translation and need it to be checked by another
+                translator? We have got you covered. We offer proofreading and
+                correction services for all supported language pairs.
+              </Service.Description>
+              <Service.CallToAction
+                url="/language-pairs"
+                urlText="Show pairs"
+              />
+            </Service.Content>
+          </Service>
+          <Service>
+            <Service.Image
+              src={onSiteTranslationsImg}
+              alt="We offer On-site and Cabin Translations"
+              width={640}
+              height={291}
+              variant="right"
+            />
+            <Service.Content variant="left">
+              <Service.Title>
+                On-site / Cabin
+                <br />
+                Translations
+              </Service.Title>
+              <Service.Description>
+                Need an on-site translation? We can help you with that. We offer
+                translations for hourly wages specified for each language pair.
+                You can find the wages table by clicking the link below.
+              </Service.Description>
+              <Service.CallToAction url="language-pairs" urlText="Show wages" />
+            </Service.Content>
+          </Service>
+          <Service>
+            <Service.Image
+              src={voipPhoneTranslationsImg}
+              alt="We offer VoIP and Phone Conference translation services"
+              width={640}
+              height={291}
+              variant="left"
+            />
+            <Service.Content variant="right">
+              <Service.Title>
+                Phone/VoIP and Conference Translations
+              </Service.Title>
+              <Service.Description>
+                We offer translations for phone/video calls, on-line conferences
+                and meetings with translation performed in real time. We also
+                provide services related to adding subtitles to existing
+                recordings.
+              </Service.Description>
+              <Service.CallToAction url="contact" urlText="Contact Us" />
+            </Service.Content>
+          </Service>
+        </Section>
       </div>
-      <div
-        id="working-with-us"
-        className="my-12 mx-12 lg:mx-auto h-full flex flex-col items-center justify-center"
-      >
-        <div className="max-w-4xl w-full mx-6 xl:mx-0">
-          <h2 className="text-3xl font-bold text-left">Working with us</h2>
-          <p className="mt-6">
-            Working with us is easy! With all translations we follow a standard
-            process which is simple and easy to follow. It all comes down to
-            three steps:
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 mt-6 justify-center">
-            <WorkWithUsStep>
-              <WorkWithUsStep.Icon icon={DocumentTextIcon} />
-              <WorkWithUsStep.Title>Send Your Documents</WorkWithUsStep.Title>
-              <WorkWithUsStep.Content>
-                Please send your documents to the following e-mail address:{' '}
-                <a
-                  href="mailto:translations.request@acme.com?subject=Translation request"
-                  className="text-[#150f47] underline"
-                >
-                  translations.request@acme.com
-                </a>
-                . After receiving the documents we will provide a quote within{' '}
-                <b>24 hours</b>.
-              </WorkWithUsStep.Content>
-            </WorkWithUsStep>
-            <WorkWithUsStep>
-              <WorkWithUsStep.Icon icon={CalendarDaysIcon} />
-              <WorkWithUsStep.Title>Set a deadline</WorkWithUsStep.Title>
-              <WorkWithUsStep.Content>
-                After receiving the quote and accepting the terms and price, we
-                will ask you to set a <b>deadline</b> for the translation.
-                Deadlines can be as short as a couple of hours for simple
-                documents!
-              </WorkWithUsStep.Content>
-            </WorkWithUsStep>
-            <WorkWithUsStep>
-              <WorkWithUsStep.Icon icon={CheckIcon} />
-              <WorkWithUsStep.Title>Receive Translation</WorkWithUsStep.Title>
-              <WorkWithUsStep.Content>
-                Your translation will be sent to you by means that you have
-                specified in the request. We are flexible and can have your
-                translation delivered to you by email, phone, post or carrier.
-              </WorkWithUsStep.Content>
-            </WorkWithUsStep>
-          </div>
+      <Section id="working-with-us">
+        <SectionTitle>Working with us</SectionTitle>
+        <p className="mt-6">
+          Working with us is easy! With all translations we follow a standard
+          process which is simple and easy to follow. It all comes down to three
+          steps:
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-8 mt-6 justify-center">
+          <WorkWithUsStep>
+            <WorkWithUsStep.Icon icon={DocumentTextIcon} />
+            <WorkWithUsStep.Title>Send Your Documents</WorkWithUsStep.Title>
+            <WorkWithUsStep.Content>
+              Please send your documents to the following e-mail address:{' '}
+              <a
+                href="mailto:translations.request@acme.com?subject=Translation request"
+                className="text-[#150f47] underline"
+              >
+                translations.request@acme.com
+              </a>
+              . After receiving the documents we will provide a quote within{' '}
+              <b>24 hours</b>.
+            </WorkWithUsStep.Content>
+          </WorkWithUsStep>
+          <WorkWithUsStep>
+            <WorkWithUsStep.Icon icon={CalendarDaysIcon} />
+            <WorkWithUsStep.Title>Set a deadline</WorkWithUsStep.Title>
+            <WorkWithUsStep.Content>
+              After receiving the quote and accepting the terms and price, we
+              will ask you to set a <b>deadline</b> for the translation.
+              Deadlines can be as short as a couple of hours for simple
+              documents!
+            </WorkWithUsStep.Content>
+          </WorkWithUsStep>
+          <WorkWithUsStep>
+            <WorkWithUsStep.Icon icon={CheckIcon} />
+            <WorkWithUsStep.Title>Receive Translation</WorkWithUsStep.Title>
+            <WorkWithUsStep.Content>
+              Your translation will be sent to you by means that you have
+              specified in the request. We are flexible and can have your
+              translation delivered to you by email, phone, post or carrier.
+            </WorkWithUsStep.Content>
+          </WorkWithUsStep>
         </div>
-      </div>
+      </Section>
     </main>
   )
+}
+
+const Section = ({
+  children,
+  id,
+  className,
+}: {
+  children: React.ReactNode
+  id: string
+  className?: string
+}) => {
+  return (
+    <div
+      className={cn(
+        'my-12 mx-12 max-w-4xl lg:mx-auto flex flex-col items-center justify-center',
+        className
+      )}
+      id={id}
+    >
+      {children}
+    </div>
+  )
+}
+
+const SectionTitle = ({ children }: { children: React.ReactNode }) => {
+  return <h2 className="text-3xl font-bold text-left w-full">{children}</h2>
 }
