@@ -41,12 +41,14 @@ export default function Home() {
       </div>
       <div
         id="what-we-do"
-        className="my-12 mx-6 lg:mx-auto h-full flex items-center justify-center"
+        className="my-12 mx-12 max-w-4xl lg:mx-auto flex items-center justify-center"
       >
-        <div className="max-w-4xl w-full flex flex-col-reverse lg:flex-row items-center lg:items-start lg:justify-between mx-6 xl:mx-0">
-          <div>
-            <h2 className="text-3xl font-bold text-left">What We Do</h2>
-            <p className="max-w-[540px] mx-auto mt-4 text-xl">
+        <div className="w-full flex flex-col-reverse md:flex-row md:items-start md:justify-between">
+          <div className="max-w-full md:max-w-[90%] lg:max-w-[540px] mx-auto">
+            <h2 className="text-3xl font-bold text-left mx-auto lg:ml-0">
+              What We Do
+            </h2>
+            <p className="text-left mt-4 text-xl mx-auto lg:ml-0">
               We offer <b>high quality</b> translations for both individuals and
               businesses specializing in translations to and from{' '}
               <b>Hungarian</b>. We cover all kinds of documents ranging from
@@ -55,18 +57,20 @@ export default function Home() {
             </p>
             <Link
               href={'/about'}
-              className="inline-block bg-[#477050] hover:bg-[#CE2939] transition-all duration-200 text-white px-10 py-3 mt-8 md:mt-6 font-bold rounded-full"
+              className="inline-block bg-[#477050] hover:bg-[#CE2939] transition-all duration-200 text-white px-10 py-3 mt-8 md:mt-6 font-bold rounded-full mx-auto lg:ml-0"
             >
               About Us
             </Link>
           </div>
-          <Image
-            src={translatingPic}
-            alt="What We Do"
-            width={420}
-            height={313}
-            className="max-w-full md:max-w-[340px] mb-8 lg:mb-0"
-          />
+          <div className="max-w-full md:max-w-[90%] lg:max-w-[340px] mx-auto">
+            <Image
+              src={translatingPic}
+              alt="What We Do"
+              width={420}
+              height={313}
+              className="block sm:hidden lg:block w-full mb-8 lg:mb-0 mx-auto"
+            />
+          </div>
         </div>
       </div>
       <div id="services-intro" className="mt-10 py-10 bg-slate-50">
