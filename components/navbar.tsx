@@ -14,7 +14,11 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-transparent py-4 pl-1 pr-4">
+    <nav
+      className="bg-transparent py-4 pl-1 pr-4"
+      role="navigation"
+      aria-label="Main"
+    >
       <div className="flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
