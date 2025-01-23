@@ -6,6 +6,10 @@ import Link from 'next/link'
 import logo from '@/public/images/logo.png'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
+import { cn } from '@/lib/utils'
+
+import Backdrop from './backdrop'
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -64,7 +68,8 @@ const Navbar = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-black focus:outline-none"
+            className="text-black focus:outline-none peer"
+            disabled={menuOpen}
           >
             <span className="block w-6 h-0.5 bg-black mb-1"></span>
             <span className="block w-6 h-0.5 bg-black mb-1"></span>
@@ -72,12 +77,14 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div
-          className={`fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto w-80 bg-white transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'}}`}
-        >
+      {menuOpen && <Backdrop onClick={() => setMenuOpen(false)} />}
+      <div
+        className={cn(
+          'fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto w-72 bg-white transition-all duration-500 transform translate-x-full',
+          menuOpen && 'translate-x-0'
+        )}
+      >
+        <div className="flex flex-col h-full">
           <div className="w-full mt-2 px-1 flex justify-end">
             <button
               onClick={() => setMenuOpen(false)}
@@ -86,7 +93,7 @@ const Navbar = () => {
               <XMarkIcon className="size-6 text-gray-400" />
             </button>
           </div>
-          <ul className="flex flex-col items-end gap-6 text-black font-bold text-lg px-6 mt-4">
+          <ul className="flex flex-col items-end gap-6 text-black font-bold text-lg px-2 mt-4">
             <li className="w-full text-left border-b pb-2">
               <Link
                 href={'/'}
@@ -124,8 +131,13 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <div className="mt-auto text-xs text-center">
+            Copyright &copy; {new Date().getFullYear()} Jakub Ćwikowski
+            <br />
+            All rights Reserved
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   )
 }
