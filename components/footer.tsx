@@ -4,6 +4,9 @@ import Link from 'next/link'
 import logo from '@/public/images/logo.png'
 import { Facebook, Instagram, Linkedin, LucideProps } from 'lucide-react'
 
+import SocialIcon from './social-icon'
+import SocialIcons from './social-icons'
+
 const Footer = () => {
   return (
     <footer className="flex pb-1 pt-6 w-full flex-col bg-white text-black">
@@ -21,11 +24,7 @@ const Footer = () => {
               height={40}
               className="h-[32px] mx-auto mb-6 mt-4 lg:ml-0 lg:mt-0"
             />
-            <SocialIcons>
-              <SocialIcon icon={Facebook} url="https://facebook.com" />
-              <SocialIcon icon={Linkedin} url="https://linkedin.com" />
-              <SocialIcon icon={Instagram} url="https://instagram.com" />
-            </SocialIcons>
+            <SocialIcons size="small" withHoverEffect={true} />
           </div>
           <div className="flex flex-col md:flex-row md:space-x-16">
             <FooterSection>
@@ -76,37 +75,6 @@ const Copyright = () => {
       Copyright &copy; {new Date().getFullYear()} Jakub Ćwikowski | All rights
       Reserved
     </div>
-  )
-}
-
-const SocialIcons = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ul className="flex flex-row space-x-4 justify-center lg:justify-start lg:ml-2">
-      {children}
-    </ul>
-  )
-}
-
-const SocialIcon = ({
-  icon,
-  url,
-}: {
-  icon: React.ForwardRefExoticComponent<
-    Omit<LucideProps, 'ref'> & React.RefAttributes<SVGSVGElement>
-  >
-  url: string
-}) => {
-  const Icon = icon
-  return (
-    <li>
-      <a
-        href={url}
-        target="_blank"
-        className="block border-2 border-[#CE2939] bg-white hover:bg-[#CE2939] text-[#CE2939] hover:text-white rounded-full h-8 w-8 text-center transition-all ease-in-out duration-200"
-      >
-        <Icon size={16} className="block mx-auto mt-[6px]" />
-      </a>
-    </li>
   )
 }
 

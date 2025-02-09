@@ -10,9 +10,13 @@ import {
   CheckIcon,
   DocumentTextIcon,
 } from '@heroicons/react/24/outline'
+import { Facebook, MailIcon, PhoneCallIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import ContactForm from '@/components/contact-form'
 import Service from '@/components/service'
+import SocialIcon from '@/components/social-icon'
+import SocialIcons from '@/components/social-icons'
 import WorkWithUsStep from '@/components/work-with-us-step'
 
 export default function Home() {
@@ -205,6 +209,52 @@ export default function Home() {
           </WorkWithUsStep>
         </div>
       </Section>
+      <div className="bg-[#CE2939] text-white pb-1 mb-10">
+        <Section id="contact" className="mt-20">
+          <div className="w-full flex flex-col md:flex-row md:items-start md:justify-between">
+            <div className="max-w-full md:max-w-[90%] lg:max-w-[440px] mt-10">
+              <SectionTitle>Contact Us</SectionTitle>
+              <p className="text-left mt-4 mb-4 text-md mx-auto lg:ml-0">
+                Have questions or need assistance? We're here to help! Reach out
+                to us anytime—we'd love to hear from you.
+              </p>
+              <div className="flex flex-row items-center mt-8">
+                <div className="bg-white h-12 w-12 rounded-full text-[#CE2939] mr-8">
+                  <MailIcon className="size-8 mx-auto mt-2" />
+                </div>
+                <div>
+                  <h4 className="text-lg mb-1 font-bold">Email Us</h4>
+                  <a
+                    href="mailto:contact@webtranslations.test.com"
+                    className="hover:underline"
+                  >
+                    contact@webtranslations.test.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex flex-row items-center mt-8">
+                <div className="bg-white h-12 w-12 rounded-full text-[#CE2939] mr-8">
+                  <PhoneCallIcon className="size-7 mx-auto mt-3" />
+                </div>
+                <div>
+                  <h4 className="text-lg mb-1 font-bold">Call Us</h4>
+                  Phone:{' '}
+                  <a href="tel:+48-111-111-111" className="hover:underline">
+                    (+48) 111-111-111
+                  </a>
+                </div>
+              </div>
+              <h4 className="mt-8 text-lg mb-3">Follow Us On Social Media</h4>
+              <div className="flex flex-row space-x-8">
+                <SocialIcons size="large" withHoverEffect={false} />
+              </div>
+            </div>
+            <div className="max-w-full md:max-w-[90%] lg:max-w-[420px] mt-10 lg:-mt-10 lg:-mb-20 bg-[#fafafa] px-6 py-8 text-black shadow-lg rounded-2xl">
+              <ContactForm />
+            </div>
+          </div>
+        </Section>
+      </div>
     </main>
   )
 }
@@ -221,7 +271,7 @@ const Section = ({
   return (
     <div
       className={cn(
-        'my-12 mx-12 max-w-4xl lg:mx-auto flex flex-col items-center justify-center',
+        'my-12 mx-8 lg:max-w-4xl lg:mx-auto flex flex-col items-center justify-center',
         className
       )}
       id={id}
