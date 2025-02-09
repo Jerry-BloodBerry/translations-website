@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-transparent py-4 pl-1 pr-4"
+      className="bg-transparent py-4 pl-2 pr-4"
       role="navigation"
       aria-label="Main"
     >
